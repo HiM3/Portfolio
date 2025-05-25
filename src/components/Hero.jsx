@@ -52,13 +52,13 @@ const Hero = () => (
                             </Button>
                         </div>
                         <div className="d-flex gap-3">
-                            <a href="https://github.com/HiM3" target="_blank" rel="noopener noreferrer" className="text-white fs-4">
+                            <a href="https://github.com/HiM3" target="_blank" rel="noopener noreferrer" className="text-primary fs-4">
                                 <FaGithub />
                             </a>
-                            <a href="https://www.linkedin.com/in/meet-mehta-9575a1261" target="_blank" rel="noopener noreferrer" className="text-white fs-4">
+                            <a href="https://www.linkedin.com/in/meet-mehta-9575a1261" target="_blank" rel="noopener noreferrer" className="text-primary fs-4">
                                 <FaLinkedin />
                             </a>
-                            <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-white fs-4">
+                            <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-primary fs-4">
                                 <FaTwitter />
                             </a>
                         </div>

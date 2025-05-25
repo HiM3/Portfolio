@@ -42,20 +42,20 @@ const Contact = () => {
     {
       icon: <FaEnvelope />,
       title: 'Email',
-      content: 'your.email@example.com',
-      link: 'mailto:your.email@example.com'
+      content: 'krmehta1452@gmail.com',
+      link: 'mailto:krmehta1452@gmail.com'
     },
     {
       icon: <FaPhone />,
       title: 'Phone',
-      content: '+1 234 567 890',
-      link: 'tel:+1234567890'
+      content: '+91 91573 81209',
+      link: 'tel:9157381209'
     },
     {
       icon: <FaMapMarkerAlt />,
       title: 'Location',
-      content: 'Your City, Country',
-      link: '#'
+      content: 'Ahmedabad, India',
+      link: 'https://maps.app.goo.gl/CNEeNPuCqbEfFuuFA'
     }
   ];
 

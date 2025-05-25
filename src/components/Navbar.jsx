@@ -1,121 +1,86 @@
-import { Container, Nav, Navbar, Button } from 'react-bootstrap';
-import { Link } from 'react-scroll';
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { useTheme } from '../context/ThemeContext';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Link as ScrollLink, scroller } from 'react-scroll';
 
 const MyNavbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [expanded, setExpanded] = useState(false);
   const { darkMode, toggleDarkMode } = useTheme();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 50;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
-      }
+      setScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrolled]);
+  }, []);
 
   const navLinks = [
     { name: 'Home', to: 'home' },
     { name: 'About', to: 'about' },
     { name: 'Projects', to: 'projects' },
     { name: 'Skills', to: 'skills' },
-    { name: 'Contact', to: 'contact' },
+    { name: 'Contact', to: 'contact' }
   ];
 
+  const handleNavClick = (section) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Use timeout to wait until route changes before scrolling
+      setTimeout(() => {
+        scroller.scrollTo(section, {
+          duration: 500,
+          smooth: true,
+          offset: -70
+        });
+      }, 100);
+    } else {
+      scroller.scrollTo(section, {
+        duration: 500,
+        smooth: true,
+        offset: -70
+      });
+    }
+  };
+
   return (
-    <Navbar
-      expand="lg"
-      fixed="top"
-      className={`transition-all duration-300 ${scrolled ? 'scrolled' : ''}`}
-      expanded={expanded}
-      onToggle={(expanded) => setExpanded(expanded)}
+    <Navbar 
+      expand="lg" 
+      fixed="top" 
+      className={`navbar-custom ${scrolled ? 'scrolled' : ''} ${darkMode ? 'dark-mode' : ''}`}
     >
       <Container>
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
+        <Navbar.Brand 
+          onClick={() => handleNavClick('home')} 
+          className="brand brand-text" 
+          style={{ cursor: 'pointer' }}
         >
-          <Navbar.Brand 
-            href="#" 
-            className="fw-bold"
-          >
-            Meet
-          </Navbar.Brand>
-        </motion.div>
-
-        <Navbar.Toggle 
-          aria-controls="basic-navbar-nav" 
-          className="border-0"
-        />
-        
+          Portfolio
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto align-items-center">
-            {navLinks.map((link, idx) => (
-              <motion.div
+          <Nav className="ms-auto align-items-center gap-2">
+            {navLinks.map((link) => (
+              <Nav.Link
                 key={link.to}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                onClick={() => handleNavClick(link.to)}
+                className="nav-link-custom"
+                style={{ cursor: 'pointer' }}
               >
-                <Nav.Link
-                  as={Link}
-                  to={link.to}
-                  smooth
-                  duration={500}
-                  spy
-                  activeClass="active"
-                  className="mx-2"
-                  onClick={() => setExpanded(false)}
-                >
-                  {link.name}
-                </Nav.Link>
-              </motion.div>
+                {link.name}
+              </Nav.Link>
             ))}
-            
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: navLinks.length * 0.1 }}
-              className="ms-3"
+            <Button 
+              variant={darkMode ? "light" : "dark"} 
+              className="ms-2 theme-toggle"
+              onClick={toggleDarkMode}
             >
-              <Button
-                variant={darkMode ? 'outline-light' : 'outline-dark'}
-                size="sm"
-                className="rounded-circle p-2"
-                onClick={toggleDarkMode}
-              >
-                {darkMode ? <FaSun /> : <FaMoon />}
-              </Button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: (navLinks.length + 1) * 0.1 }}
-              className="ms-3"
-            >
-              <Button
-                variant="primary"
-                size="sm"
-                className="px-3"
-                as={Link}
-                to="contact"
-                smooth
-                duration={500}
-                onClick={() => setExpanded(false)}
-              >
-                Hire Me
-              </Button>
-            </motion.div>
+              {darkMode ? <FaSun /> : <FaMoon />}
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </Container>

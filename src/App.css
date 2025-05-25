@@ -366,3 +366,259 @@ section::before {
 .dark-mode section:nth-child(even) {
   background: var(--gradient-secondary);
 }
+
+/* Navigation Styles */
+.navbar-custom {
+  transition: all 0.3s ease;
+  padding: 1rem 0;
+  z-index: 1000;
+}
+
+.navbar-custom .brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.navbar-custom .nav-link {
+  color: var(--text-primary);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navbar-custom .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navbar-custom .nav-link:hover::after,
+.navbar-custom .nav-link.active::after {
+  width: 80%;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+  color: var(--primary-color);
+}
+
+.navbar-custom .theme-toggle {
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.navbar-custom .theme-toggle:hover {
+  transform: rotate(15deg);
+}
+
+.navbar-custom.scrolled {
+  background: var(--navbar-bg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+}
+
+/* Dark Mode Navigation Styles */
+.dark-mode .navbar-custom {
+  background: var(--navbar-bg);
+}
+
+.dark-mode .navbar-custom .nav-link {
+  color: var(--text-primary);
+}
+
+.dark-mode .navbar-custom .nav-link:hover,
+.dark-mode .navbar-custom .nav-link.active {
+  color: var(--primary-color);
+}
+
+.dark-mode .navbar-custom .theme-toggle {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* Add padding to the main content to account for fixed navbar */
+.skills-page,
+.service-contact,
+#hero,
+#about,
+#projects,
+#skills,
+#contact {
+  padding-top: 80px; /* Adjust this value based on your navbar height */
+}
+
+/* Skills Page Styles */
+.skills-page {
+  min-height: 100vh;
+  padding-top: 100px; /* Increased padding to account for navbar */
+  background: var(--gradient-primary);
+}
+
+.skills-page .section-heading {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.skills-page .section-subheading {
+  margin-bottom: 3rem;
+}
+
+.service-card {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.skill-card {
+  transition: transform 0.3s ease;
+  height: 100%;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+}
+
+.skill-image {
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-image {
+  transform: scale(1.1);
+}
+
+/* Service Contact Page Styles */
+.service-contact {
+  min-height: 100vh;
+  padding-top: 100px; /* Increased padding to account for navbar */
+  background: var(--gradient-primary);
+}
+
+.service-contact .section-heading {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.service-contact .section-subheading {
+  margin-bottom: 3rem;
+}
+
+.service-contact .card {
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.service-contact .card:hover {
+  transform: translateY(-5px);
+}
+
+.service-contact .form-control,
+.service-contact .form-select {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.service-contact .form-control:focus,
+.service-contact .form-select:focus {
+  border-color: var(--text-link);
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.service-contact .map-container {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Projects Page Styles */
+.projects-page {
+  min-height: 100vh;
+  padding-top: 100px;
+  background: var(--gradient-primary);
+}
+
+.projects-page .section-heading {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.projects-page .section-subheading {
+  margin-bottom: 3rem;
+}
+
+.project-card {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.project-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-card .card-title {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.project-card .card-text {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.project-card .badge {
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+}
+
+.project-card .btn {
+  font-weight: 500;
+}
+
+.project-card .btn-primary {
+  background-color: var(--text-link);
+  border-color: var(--text-link);
+}
+
+.project-card .btn-outline-primary {
+  color: var(--text-link);
+  border-color: var(--text-link);
+}
+
+.project-card .btn-outline-primary:hover {
+  background-color: var(--text-link);
+  color: var(--text-light);
+}

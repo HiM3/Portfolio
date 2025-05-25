@@ -1,0 +1,368 @@
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+  }
+
+/* Light mode (default) */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-muted: #6c757d;
+  --text-light: #f8f9fa;
+  --text-dark: #212529;
+  --text-link: #0d6efd;
+  --text-link-hover: #0a58ca;
+  --border-color: #dee2e6;
+  --card-bg: #ffffff;
+  --navbar-bg: #ffffff;
+  --navbar-text: #212529;
+  --navbar-scrolled-bg: #ffffff;
+  --navbar-scrolled-text: #212529;
+  --heading-color: #212529;
+  --subheading-color: #495057;
+  --badge-bg: rgba(13, 110, 253, 0.1);
+  --badge-text: #0d6efd;
+  --gradient-primary: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #eaeaea 100%);
+  --gradient-secondary: linear-gradient(135deg, #eaeaea 0%, #f5f5f5 50%, #ffffff 100%);
+}
+
+/* Dark mode */
+.dark-mode {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #ffffff;
+  --text-secondary: #ffffff;
+  --text-muted: #ffffff;
+  --text-light: #ffffff;
+  --text-dark: #ffffff;
+  --text-link: #6ea8fe;
+  --text-link-hover: #8bb9fe;
+  --border-color: #404040;
+  --card-bg: #2d2d2d;
+  --navbar-bg: transparent;
+  --navbar-text: #ffffff;
+  --navbar-scrolled-bg: #2d2d2d;
+  --navbar-scrolled-text: #ffffff;
+  --heading-color: #ffffff;
+  --subheading-color: #ffffff;
+  --badge-bg: rgba(110, 168, 254, 0.1);
+  --badge-text: #ffffff;
+  --gradient-primary: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #2a2a2a 100%);
+  --gradient-secondary: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 50%, #0d0d0d 100%);
+}
+
+/* Apply variables */
+body {
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+  transition: color 0.3s ease;
+}
+
+p, span, div {
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+.text-primary {
+  color: var(--text-link) !important;
+}
+
+/* Dark mode specific text styles */
+.dark-mode .text-muted {
+  color: #ffffff !important;
+  opacity: 0.8;
+}
+
+.dark-mode .text-secondary {
+  color: #ffffff !important;
+  opacity: 0.9;
+}
+
+.dark-mode .lead {
+  color: #ffffff !important;
+}
+
+.dark-mode .card-text {
+  color: #ffffff !important;
+}
+
+.dark-mode .form-label {
+  color: #ffffff !important;
+}
+
+.dark-mode .form-control {
+  color: #ffffff !important;
+  background-color: var(--bg-secondary) !important;
+}
+
+.dark-mode .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.dark-mode .alert {
+  color: #ffffff !important;
+}
+
+.dark-mode .badge {
+  color: #ffffff !important;
+}
+
+/* Links */
+a {
+  color: var(--text-link);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--text-link-hover);
+}
+
+/* Cards */
+.card {
+  background-color: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.card-title {
+  color: var(--heading-color);
+}
+
+.card-text {
+  color: var(--text-primary);
+}
+
+/* Badges */
+.badge {
+  background-color: var(--badge-bg) !important;
+  color: var(--badge-text) !important;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--navbar-bg) !important;
+  transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: var(--navbar-scrolled-bg) !important;
+}
+
+.navbar .nav-link {
+  color: var(--navbar-text) !important;
+  transition: color 0.3s ease;
+}
+
+.navbar.scrolled .nav-link {
+  color: var(--navbar-scrolled-text) !important;
+}
+
+.navbar-brand {
+  color: var(--navbar-text) !important;
+  transition: color 0.3s ease;
+}
+
+.navbar.scrolled .navbar-brand {
+  color: var(--navbar-scrolled-text) !important;
+}
+
+/* Form elements */
+.form-control {
+  background-color: var(--bg-primary);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.form-control:focus {
+  background-color: var(--bg-primary);
+  border-color: var(--text-link);
+  color: var(--text-primary);
+}
+
+.form-label {
+  color: var(--text-primary);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-primary);
+}
+
+/* Section backgrounds */
+section {
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+/* Hero Section */
+#hero {
+  background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #eaeaea 100%);
+}
+
+.dark-mode #hero {
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 50%, #2a2a2a 100%);
+}
+
+/* About Section */
+#about {
+  background: linear-gradient(135deg, #fdfdfd 0%, #f4f4f4 100%);
+}
+
+.dark-mode #about {
+  background: linear-gradient(135deg, #121212 0%, #1f1f1f 100%);
+}
+
+/* Skills Section */
+#skills {
+  background: linear-gradient(135deg, #ffffff 0%, #f7f7f7 100%);
+}
+
+.dark-mode #skills {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2e2e2e 100%);
+}
+
+/* Projects Section */
+#projects {
+  background: linear-gradient(135deg, #f0f0f0 0%, #e2e2e2 100%);
+}
+
+.dark-mode #projects {
+  background: linear-gradient(135deg, #1b1b1b 0%, #292929 50%, #383838 100%);
+}
+
+/* Contact Section */
+#contact {
+  background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+}
+
+.dark-mode #contact {
+  background: linear-gradient(135deg, #101010 0%, #1c1c1c 100%);
+}
+
+/* Add subtle overlay to sections */
+section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+}
+
+.dark-mode section::before {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* Active nav link */
+.nav-link.active {
+  color: var(--text-link) !important;
+  font-weight: 600;
+}
+
+/* Section Headings */
+.section-heading {
+  color: var(--heading-color);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--text-link);
+  transition: background-color 0.3s ease;
+}
+
+.section-subheading {
+  color: var(--subheading-color);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  transition: color 0.3s ease;
+}
+
+/* GitHub Button */
+.github-btn {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.github-btn:hover {
+  background-color: var(--text-link);
+  color: var(--text-light);
+  border-color: var(--text-link);
+  transform: translateY(-2px);
+}
+
+.github-btn .github-icon {
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.github-btn:hover .github-icon {
+  color: var(--text-light);
+}
+
+/* Dark mode specific adjustments */
+.dark-mode .github-btn {
+  background-color: var(--bg-secondary);
+  color: #ffffff;
+}
+
+.dark-mode .github-btn:hover {
+  background-color: var(--text-link);
+  color: #ffffff;
+}
+
+.dark-mode .github-btn .github-icon {
+  color: #ffffff;
+}
+
+.dark-mode .github-btn:hover .github-icon {
+  color: #ffffff;
+}
+
+/* Dark mode specific section styles */
+.dark-mode section {
+  background: var(--gradient-primary);
+}
+
+.dark-mode section:nth-child(even) {
+  background: var(--gradient-secondary);
+}
